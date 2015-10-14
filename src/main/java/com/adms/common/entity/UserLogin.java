@@ -1,73 +1,115 @@
 package com.adms.common.entity;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import com.adms.common.domain.BaseDomain;
 
 public class UserLogin extends BaseDomain {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3723094059069314710L;
 	
-	private String user;
-	private String userPassword;
-	private String userRole;
-	private Date userLoginDate;
+	private String username;
+	private String pwd;
+	private Date loginDate;
 	private Boolean loginSuccess = false;
+	private Map<String, List<String>> rolePrivileges;
 	
 	public UserLogin() {
 		
 	}
 	
-	public UserLogin(String user) {
-		this.user = user;
+	public UserLogin(String username) {
+		this.username = username;
 	}
 	
-	public UserLogin(String user, String userPassword) {
-		this.user = user;
-		this.userPassword = userPassword;
+	public UserLogin(String username, String pwd) {
+		this(username);
+		this.pwd = pwd;
 	}
 	
-	public String getUser() {
-		return user;
+	public UserLogin(String username, String pwd, Date loginDate) {
+		this(username, pwd);
+		this.loginDate = loginDate;
 	}
 	
-	public void setUser(String user) {
-		this.user = user;
+	public UserLogin(String username, String pwd, Date loginDate, Boolean loginSuccess) {
+		this(username, pwd, loginDate);
+		this.loginSuccess = loginSuccess;
 	}
 	
-	public String getUserPassword() {
-		return userPassword;
+	public UserLogin(String username, String pwd, Date loginDate, Boolean loginSuccess, Map<String, List<String>> rolePrivileges) {
+		this(username, pwd, loginDate, loginSuccess);
+		this.rolePrivileges = rolePrivileges;
 	}
 	
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public UserLogin username(String username) {
+		this.username = username;
+		return this;
+	}
+	
+	public UserLogin pwd(String pwd) {
+		this.pwd = pwd;
+		return this;
+	}
+	
+	public UserLogin loginDate(Date loginDate) {
+		this.loginDate = loginDate;
+		return this;
+	}
+	
+	public UserLogin loginSuccess(Boolean loginSuccess) {
+		this.loginSuccess = loginSuccess;
+		return this;
+	}
+	
+	public UserLogin rolePrivileges(Map<String, List<String>> rolePrivileges) {
+		this.rolePrivileges = rolePrivileges;
+		return this;
 	}
 
-	public String getUserRole() {
-		return userRole;
+	public String getUsername() {
+		return username;
+	}
+	
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
+	
+	public String getPwd() {
+		return pwd;
+	}
+	
+//	public void setPwd(String pwd) {
+//		this.pwd = pwd;
+//	}
+
+//	public void setRole(String role) {
+//		this.role = role;
+//	}
+
+	public Date getLoginDate() {
+		return loginDate;
 	}
 
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
-	}
-
-	public Date getUserLoginDate() {
-		return userLoginDate;
-	}
-
-	public void setUserLoginDate(Date userLoginDate) {
-		this.userLoginDate = userLoginDate;
-	}
+//	public void setLoginDate(Date loginDate) {
+//		this.loginDate = loginDate;
+//	}
 
 	public Boolean getLoginSuccess() {
 		return loginSuccess;
 	}
 
-	public void setLoginSuccess(Boolean loginSuccess) {
-		this.loginSuccess = loginSuccess;
+//	public void setLoginSuccess(Boolean loginSuccess) {
+//		this.loginSuccess = loginSuccess;
+//	}
+
+	public Map<String, List<String>> getRolePrivileges() {
+		return rolePrivileges;
 	}
-	
+
+//	public void setRolePrivileges(Map<String, List<String>> rolePrivileges) {
+//		this.rolePrivileges = rolePrivileges;
+//	}
 }
