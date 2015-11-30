@@ -12,6 +12,7 @@ public class UserLogin extends BaseDomain {
 	
 	private String username;
 	private String pwd;
+	private String newPwd;
 	private Date loginDate;
 	private Boolean loginSuccess = false;
 	private Map<String, List<String>> rolePrivileges;
@@ -107,6 +108,15 @@ public class UserLogin extends BaseDomain {
 
 	public Map<String, List<String>> getRolePrivileges() {
 		return rolePrivileges;
+	}
+
+	public String getNewPwd() {
+		return newPwd;
+	}
+
+	public UserLogin setNewPwd(String newPwd) {
+		this.newPwd = newPwd;
+		return this;
 	}
 
 //	public void setRolePrivileges(Map<String, List<String>> rolePrivileges) {
